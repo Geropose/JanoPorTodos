@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Jano por Todos</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="shortcut icon" href="img/logo_jano_por_todos.png">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Selecting the iframe element
+      var iframe = document.getElementById("myIframe");
+      
+      // Adjusting the iframe height onload event
+      iframe.onload = function(){
+          iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+      }
+    </script>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body background="img/Background.jpg">
+    <div class="container-fluid bg-light position-relative shadow">
+      <nav
+        class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-1"
+      >
+        <a
+          href="home.html"
+          class="navbar-brand font-weight-bold text-secondary"
+          style="font-size: 50px"
+        >
+          <img src="img/logo_jano_por_todos.png" width=80 alt="" />
+          <span class="text-primary">Jano Por Todos</span>
+        </a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-between"
+          id="navbarCollapse"
+        >
+          <div class="navbar-nav font-weight-bold mx-auto py-0">
+            <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown">Nosotros</a>
+              <div class="dropdown-menu rounded-0 m-0">
+                <a href="quienesSomos.html" class="dropdown-item">¿Quiénes somos?</a>
+                <a href="objetivos.html" class="dropdown-item">Objetivos</a>
+              </div>
+            </div>
+            <a href="proyectos.html" class="nav-item nav-link">Proyectos</a>
+            <a href="eventos.html" class="nav-item nav-link">Eventos</a>
+            <a href="apoyanos.html" class="nav-item nav-link">Apoyanos</a>
+            <a href="programa.html" class="nav-item nav-link">Programa</a>
+            <div class="navbar-nav font-weight-bold mx-auto py-0">
+              <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">Acerca de</a>
+                <div class="dropdown-menu">
+                  <a href="#CáncerInfantoJuvenil" class="dropdown-item">Cáncer infanto juvenil</a>
+                  <a href="#MasAllaDeLoMedico" class="dropdown-item">Más allá de lo médico</a>
+                  <a href="#LosDerechos" class="dropdown-item">Los derechos</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-item dropdown">
+            <button class="btn btn-secondary px-5" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Colaborá ahora</button>
+            <div class="dropdown-menu">
+              <p class="m-0 px-2">Voluntarios</p>
+              <button type="button" class="btn px-4" data-toggle="modal" data-target="#ModalProfesionales">
+                Profesionales
+              </button>
+              <button type="button" class="btn px-4" data-toggle="modal" data-target="#ModalNoProfesionales">
+                No profesionales
+              </button>
+              <p class="m-0 px-2">Donaciones</p>
+              <button type="button" class="btn px-4" data-toggle="modal" data-target="#ModalEmpresas">
+                Empresas
+              </button>
+              <button type="button" class="btn px-4" data-toggle="modal" data-target=#ModalDonaciones>
+                Personas
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container-fluid bg-primary mb-5">
+      <div
+        class="d-flex flex-column align-items-center justify-content-center"
+        style="min-height: 200px"
+      >
+        <h3 class="display-3 font-weight-bold text-white">Acerca de</h3>
+        <div class="d-inline-flex text-white">
+          <p class="m-0"><a class="text-white" href="home.html">Home</a></p>
+          <p class="m-0 px-2">/</p>
+          <p class="m-0">Acerca de</p>
+        </div>
+      </div>
+    </div>
+
+      <div id = "CáncerInfantoJuvenil" class="container-fluid py-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg">
+              <div class="bg-light p-5"
+              style="border-radius: 5%">
+                <h1 class="mb-3">Cáncer infanto juvenil</h1>
+                <p class="text-justify">
+                  El cáncer es un grupo de enfermedades  causadas por el crecimiento anormal de las células. Cada una de ella tiene un nombre de diagnóstico distinto y poseen características y tratamientos diferentes entre sí, utilizando protocolos internacionales.
+                  El cáncer infanto juvenil es una enfermedad de baja incidencia, pero de alta complejidad y altos requerimientos, y sólo puede ser tratado en Centros con personal, infraestructura y equipamientos especializados.
+                  A diferencia del cáncer en adultos, es una enfermedad que suele evolucionar más rápidamente, al ser los niños personas en crecimiento. Por eso, es fundamental el diagnóstico temprano que permita iniciar el tratamiento  adecuado y a tiempo,  para que cada niño tenga todas las posibilidades de sobrevida posibles.
+                  La mayoría de las causas del cáncer en niños y adolescentes no se relacionan con cuestiones hereditarias o ambientales y no es una enfermedad que se pueda contagiar, pero sí se puede curar.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid py-5">
+        <div class="container pb-3">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border border-primary rounded mb-4"
+                style="padding: 30px"
+              >
+                <div class="pl-4">
+                  <h5 class="text-center">En nuestro país reciben el diagnóstico de cáncer por año</h5>
+                  <h3 class="text-center text-primary">250000 </h3> 
+                  <h5 class="text-center"> y solo </h5>
+                  <h3 class="text-center text-primary">1400 </h3> 
+                  <h5 class="text-center">niños entre 0 y 15 años.</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border border-danger rounded mb-4" 
+                style="padding: 30px"
+              >
+              <div class="pl-4">
+                <h5 class="text-center">
+                El 82% de los pacientes se atienden en Hospitales Públicos y el 60% de ellos deben migrar para realizar los tratamientos. Tanto en Tandil como en Benito Juárez y las  otras ciudades  vecinas, esa migración es del 100%.</h5>
+              </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border border-success rounded mb-4"
+                style="padding: 30px"
+              >
+                <div class="pl-4">
+                  <h5 class="text-center">Entre el</h5>
+                  <h3 class="text-center text-primary">60 y el 80 % </h3> 
+                  <h5 class="text-center">son las probabilidades de sobrevida en nuestro país.</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="container-fluid pt-5">
+        <div class="container pb-3">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border border-primary rounded mb-4"
+                style="padding: 30px"
+              >
+                <div class="pl-4">
+                  <h4>Estudios, procedimientos y tratamientos</h4>
+                  <p class="m-0 text-justify">
+                    Tanto en su etapa diagnóstica como durante su tratamiento y en las etapas posteriores, los niños deben someterse a diferentes estudios, análisis y procedimientos.
+                    Hay diferentes tratamientos que se utilizan individualmente o combinados, siendo los más comunes la cirugía, la quimioterapia y la radioterapia. 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border border-success rounded mb-4"
+                style="padding: 30px"
+              >
+                <div class="pl-4">
+                  <h4>Momentos del tratamiento</h4>
+                  <p class="m-0 text-justify">Se pueden identificar los siguientes momentos:</p>
+                  <p class="m-0 text-justify">-Desde la aparición de los síntomas (presunción o sospecha diagnóstica) hasta el diagnóstico</p>
+                  <p class="m-0 text-justify">-Desde el diagnóstico certero al inicio del tratamiento</p>
+                  <p class="m-0 text-justify">-Etapa del tratamiento activo</p>
+                  <p class="m-0 text-justify">-Desde el fin de tratamiento hasta el alta definitiva o el final de vida (etapa de controles o de cuidados paliativos).</p>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border border-warning rounded mb-4"
+                style="padding: 30px"
+              >
+                <div class="pl-4">
+                  <h4>Cuidados especiales</h4>
+                  <p class="m-0 text-justify">
+                    Durante el tratamiento, y dependiendo de cada caso en particular, estos pacientes requieren atención a los cuidados relacionados con la higiene, la alimentación y la prevención de infecciones.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 pb-1">
+              <div
+                class="d-flex bg-light shadow-sm border border-danger rounded mb-4"
+                style="padding: 30px"
+              >
+                <div class="pl-4">
+                  <h4>Secuelas</h4>
+                  <p class="m-0 text-justify">
+                    La enfermedad y los tratamientos pueden ocasionar efectos no deseados inmediatos y efectos tardíos.
+                    Esas secuelas pueden evidenciarse a corto, mediano o largo plazo y no están relacionadas sólo con efectos físicos, sino también emocionales y cognitivos.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="MasAllaDeLoMedico" class="container-fluid py-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg">
+              <div class="bg-light p-5"
+              style="border-radius: 5%">
+                <h1 class="mb-3">Más allá de lo médico</h1>
+                <p class="text-justify">
+                  El cáncer infanto juvenil excede lo médico, y por lo tanto, se afectan otras áreas de la vida de los niños.</p>
+                  <h5>Familiar</h5>
+                  <p class="text-justify">
+                  Además del impacto emocional que el diagnóstico de un niño produce en la familia, también aparece la necesidad de organizarse y cambiar rutinas, ocuparse de trámites, de los traslados y de los otros niños de la familia. Además, la migración tiene como consecuencias el desarraigo, la pérdida de situaciones laborales, la carencia de alojamientos en las ciudades tratantes, complicaciones económicas y familias que se dividen.
+                  A pesar del gran cambio de realidad en su vida diaria, es importante conservar la mayor cantidad de rutinas familiares posibles. </p>
+                  <h5>Escolar</h5>
+                  <p class="text-justify">
+                  La escolaridad es un aspecto fundamental en la vida de los niños, pero durante su etapa de tratamiento activo no podrá concurrir regularmente a su escuela de origen. 
+                  Si bien el cuidado de su salud es prioritario, es importante que mantenga contacto con sus docentes y compañeros y que continúe, dentro de lo posible, con sus aprendizajes en las escuelas hospitalarias y/o domiciliarias.</p>
+                  <h5>Vivienda</h5>
+                  <p class="text-justify">
+                  Las condiciones de las viviendas donde habiten estos pacientes deben cumplir con las pautas de higiene y cuidado indicados por los equipos médicos. A veces, las familias deben realizar adaptaciones en el hogar, sobre todo cuando los niños se encuentren inmunosuprimidos.</p>
+                  <h5>Vida cotidiana</h5>
+                  <p class="text-justify">
+                  Un niño con cáncer sigue siendo, sobre todo, un niño y por lo tanto, ayuda a su salud mental el poder seguir desarrollando actividades que lo sitúen en sus aspectos sanos, siempre que su tratamiento lo permita. Deben ser incentivados a continuar jugando, comunicarse con amigos y parientes, y aunque no pueda desarrollar deportes y/o hobbies, poder encontrar nuevos entretenimientos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="LosDerechos" class="container-fluid py-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg">
+              <div class="bg-light p-5"
+              style="border-radius: 5%">
+                <h1 class="mb-3">Derechos de los niños, niñas y adolescentes</h1>
+                <p class="text-justify">El INC (Instituto Nacional del Cáncer), en su Programa de Cuidado Integral del Niño con Cáncer (PROCUINCA), ha definido  que estos pacientes tienen derecho a:</p>
+                <p class="text-justify">- El descanso, el esparcimiento y el juego.</p>
+                <p class="text-justify">- Volver a sus casas a disfrutar con su familia y amigos.</p>
+                <p class="text-justify">- La Educación.</p>
+                <p class="text-justify">- Saber lo que les sucede y contar con toda la información sobre su tratamiento.</p>
+                <p class="text-justify">- El alivio al dolor.</p>
+                <p class="text-justify">- Tomar decisiones.</p>
+                <p class="text-justify">- La atención médica de calidad.</p>
+                
+                <p class="text-justify px-2">
+                  Legislación: En el año 2022 se promulgó la Ley Nacional de Oncopediatría N° 27.674, cuyo objeto es el de crear un régimen de protección integral para pacientes hasta los 18 años de edad. 
+                  Esta ley otorga credenciales (CUOP: Certificado Único Oncopediátrico) a los pacientes en dos etapas: de Tratamiento activo y de Control, y durante el 2023 se comenzaron a implementar sus beneficios. 
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid py-1">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg">
+              <div class="bg-light p-3"
+              style="border-radius: 2%">
+                <em class="text-justify">La información contenida en este sitio web es de carácter orientativo y no reemplaza las indicaciones o pautas  brindadas por los profesionales. Jano Por Todos no asumirá ninguna responsabilidad sobre inexactitudes o usos inadecuados de los contenidos de su sitio web.
+
+                </em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+      class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5"
+    >
+      <div class="row pt-5">
+        <div class="col-lg-3 col-md-6 mb-5">
+          <a
+            href=""
+            class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
+            style="font-size: 40px; line-height: 40px"
+          >
+            <span class="text-white">Jano por Todos</span>
+          </a>
+          <p>
+            Junto al niño oncológico
+          </p>
+          <div class="d-flex justify-content-start mt-4">
+            <a
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+              style="width: 38px; height: 38px"
+              href="https://twitter.com/janoportodos?lang=es"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+              style="width: 38px; height: 38px"
+              href="https://www.facebook.com/JanoporTodosTandil/"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+              style="width: 38px; height: 38px"
+              href="https://www.instagram.com/janoportodos/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+          <h3 class="text-primary mb-4">Contacto</h3>
+          <div class="d-flex">
+            <h4 class="fa fa-map-marker-alt text-primary"></h4>
+            <div class="pl-3">
+              <h5 class="text-white">Dirección</h5>
+              <p>Moreno 1064, Tandil, Bs As</p>
+            </div>
+          </div>
+          <div class="d-flex">
+            <h4 class="fa fa-envelope text-primary"></h4>
+            <div class="pl-3">
+              <h5 class="text-white">Email</h5>
+              <p>janoportodos@gmail.com</p>
+            </div>
+          </div>
+          <div class="d-flex">
+            <h4 class="fa fa-phone-alt text-primary"></h4>
+            <div class="pl-3">
+              <h5 class="text-white">Telefono</h5>
+              <p>+54 2494635221</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+          <h3 class="text-primary mb-4">Links recomendados</h3>
+          <div class="d-flex flex-column justify-content-start">
+            <a class="text-white mb-2" href="quienesSomos.html"
+              ><i class="fa fa-angle-right mr-2"></i>Quiénes somos?</a 
+            >
+            <a class="text-white mb-2" href="objetivos.html"
+              ><i class="fa fa-angle-right mr-2"></i>Objetivos</a
+            >
+            <a class="text-white mb-2" href="proyectos.html"
+              ><i class="fa fa-angle-right mr-2"></i>Proyectos</a
+            >
+            <a class="text-white mb-2" href="eventos.html"
+              ><i class="fa fa-angle-right mr-2"></i>Eventos</a
+            >
+            <a class="text-white mb-2" href="apoyanos.html"
+              ><i class="fa fa-angle-right mr-2"></i>Apoyanos</a
+            >
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+          <h3 class="text-primary mb-4">Suscribirse a noticias</h3>
+          <form action="">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control border-0 py-4"
+                placeholder="Nombre"
+                required="required"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control border-0 py-4"
+                placeholder="Correo electrónico"
+                required="required"
+              />
+            </div>
+            <div>
+              <button
+                class="btn btn-primary btn-block border-0 py-3"
+                type="submit"
+              >
+                Suscribite
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div
+        class="container-fluid pt-5"
+        style="border-top: 1px solid rgba(23, 162, 184, 0.2) ;"
+      >
+        <p class="m-0 text-center text-white">
+          &copy;
+          <a class="text-primary font-weight-bold" href="#">Jano por Todos</a>.
+          Todos los derechos reservados.
+      </div>
+    </div>
+
+    <a href="#" class="btn btn-primary p-3 back-to-top"
+      ><i class="fa fa-angle-double-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
+    
