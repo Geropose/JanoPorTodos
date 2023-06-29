@@ -57,6 +57,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo 'Error al enviar el correo de suscripción.';
         }
     }
+    elseif ($formType === 'suscripcion') {
+
+        $nombre = $_POST['nombre'];
+        $email = $_POST['email'];
+		$asunto = "Nueva suscripción";
+		$mensaje = "Nombre: $nombre \n. Email: $email \n . ";
+    
+        $to = 'janoportodos@gmail.com';
+
+        if (mail($to, $asunto, $mensaje)) {
+            echo 'Correo de suscripción enviado exitosamente.';
+        } else {
+            echo 'Error al enviar el correo de suscripción.';
+        }
+    }
 	elseif ($formType === 'profesionales') {
 
         $nombre = $_POST['nombre'];

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Jano por Todos</title>
+    <title>Jano Por Todos</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="shortcut icon" href="img/logo_jano_por_todos.png">
     <!-- Favicon -->
@@ -70,7 +70,7 @@
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nosotros</a>
               <div class="dropdown-menu">
                 <a href="Nuestrahistoria.html" class="dropdown-item">Nuestra historia</a>
-                <a href="MisionyVision.html" class="dropdown-item">Mision y vision</a>
+                <a href="MisionyVision.html" class="dropdown-item">Misión y visión</a>
                 <a href="Nuestrosobjetivos.html" class="dropdown-item">Nuestros objetivos</a>
                 <a href="Nuestrospilares.html" class="dropdown-item">Nuestros pilares</a>
                 <a href="quienesSomos.html" class="dropdown-item">¿Quiénes somos?</a>
@@ -80,7 +80,7 @@
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Programas</a>
               <div class="dropdown-menu">
                 <a href="juntoalasfamilias.html" class="dropdown-item">Junto a las familias</a>
-                <a href="Recreacionyapredizajes.html" class="dropdown-item">Recreacion y aprendizajes</a>
+                <a href="Recreacionyapredizajes.html" class="dropdown-item">Recreación y aprendizajes</a>
                 <a href="Emprendimientos.html" class="dropdown-item">Emprendimientos</a>
               </div>
             </div>
@@ -88,7 +88,7 @@
             <div class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sumate</a>
               <div class="dropdown-menu">
-                <a href="Equipotecnico.html" class="dropdown-item">Equipo tecnico profesional</a>
+                <a href="Equipotecnico.html" class="dropdown-item">Equipo técnico profesional</a>
                 <a href="Voluntariado.html" class="dropdown-item">Voluntariado</a>
               </div>
             </div>
@@ -170,12 +170,39 @@
             <button class="btn btn-secondary btn-block border-0 py-3" data-toggle="modal" data-target=#ModalMonto data-dismiss="modal" aria-label="Close">
               Donar una única vez
             </button>
-            <a class="btn btn-secondary btn-block border-0 py-3 text-white" mp-mode="dftl" href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848746ac9a01874861e5e400b2" name="MP-payButton" >Donar mensualmente</a>
+            <button class="btn btn-secondary btn-block border-0 py-3" data-toggle="modal" data-target=#ModalSuscripcion data-dismiss="modal" aria-label="Close">
+              Donar frecuentemente
+            </button>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- Modal suscripcion -->
+    <div class="modal fade" id="ModalSuscripcion" tabindex="-1" role="dialog" aria-labelledby="ModalSuscripcion" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5> Seleccioná la frecuencia </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-content py-5 px-2">        
+              <div class="row"> 
+                <div class="col-lg-4 col-md-6 pb-1">
+                  <a class="btn btn-success btn-block border-0 py-3 text-white" mp-mode="dftl" href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c93808488fc9b77018908370ac6041c" name="MP-payButton" > Mensual</a> 
+                </div>
+                <div class="col-lg-4 col-md-6 pb-1">
+                  <a class="btn btn-danger btn-block border-0 py-3 text-white" mp-mode="dftl" href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c93808488fc9b420189083b00df041f" name="MP-payButton" > Trimestral</a> 
+                </div>
+                <div class="col-lg-4 col-md-6 pb-1">
+                  <a class="btn btn-primary btn-block border-0 py-3 text-white" mp-mode="dftl" href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084890681ce01890837c43a0072" name="MP-payButton" > Anual</a> 
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Modal monto -->
     <div class="modal fade" id="ModalMonto" tabindex="-1" role="dialog" aria-labelledby="ModalMonto" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -189,13 +216,17 @@
           <div class="modal-content py-5 px-2">        
               <div class="row"> 
                 <div class="col-lg-4 col-md-6 pb-1">
-                  <a class="btn btn-success btn-block border-0 py-3 text-white" mp-mode="dftl" href="http://mpago.la/2vTMs2H" name="MP-payButton" > $1000</a> 
+                  <a class="btn btn-success btn-block border-0 py-3 text-white" mp-mode="dftl" href="http://mpago.la/2ZfG7cV" name="MP-payButton" > $500</a> 
                 </div>
                 <div class="col-lg-4 col-md-6 pb-1">
-                  <a class="btn btn-primary btn-block border-0 py-3 text-white" mp-mode="dftl" href="http://mpago.la/2vTMs2H" name="MP-payButton" > $2000</a> 
+                  <a class="btn btn-primary btn-block border-0 py-3 text-white" mp-mode="dftl" href="http://mpago.la/1ZpRzPY" name="MP-payButton" > $1000</a> 
                 </div>
                 <div class="col-lg-4 col-md-6 pb-1">
-                  <a class="btn btn-danger btn-block border-0 py-3 text-white" mp-mode="dftl" href="http://mpago.la/2vTMs2H" name="MP-payButton" > $5000</a> 
+                  <a class="btn btn-danger btn-block border-0 py-3 text-white" mp-mode="dftl" href="http://mpago.la/242ixbx" name="MP-payButton" > $2000</a> 
+                </div>
+                <div class="col-lg-4 col-md-6 pb-1 align-items-center"></div>
+                <div class="col-lg-4 col-md-6 pb-1 align-items-center">
+                  <a class="btn btn-warning btn-block border-0 py-3 text-white" mp-mode="dftl" href=" link.mercadopago.com.ar/janoportodos" name="MP-payButton" > Ingresar monto</a> 
                 </div>
               </div>
           </div>
@@ -299,7 +330,7 @@
                 style="width: 45px; height: 45px"
               ></i>
               <div class="pl-3">
-                <h5>Telefono</h5>
+                <h5>Teléfono</h5>
                 <p>+54 2494635221</p>
               </div>
             </div>
@@ -310,7 +341,7 @@
               ></i>
               <div class="pl-3">
                 <h5>Horario</h5>
-                <strong>Lunes - Sabado:</strong>
+                <strong>Lunes - Sábado:</strong>
                 <p class="m-0">08:00 AM - 05:00 PM</p>
               </div>
             </div>
@@ -329,7 +360,7 @@
             class="navbar-brand font-weight-bold text-primary m-0 mb-4 p-0"
             style="font-size: 40px; line-height: 40px"
           >
-            <span class="text-white">Jano por todos</span>
+            <span class="text-white">Jano Por Todos</span>
           </a>
           <p>
             Junto Al Niño Oncológico
@@ -374,7 +405,7 @@
           <div class="d-flex">
             <h4 class="fa fa-phone-alt text-primary"></h4>
             <div class="pl-3">
-              <h5 class="text-white">Telefono</h5>
+              <h5 class="text-white">Teléfono</h5>
               <p>+54 2494635221</p>
             </div>
           </div>
@@ -404,7 +435,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
           <h3 class="text-primary mb-4">Suscribirse a noticias</h3>
-          <form action="">
+          <form formType= "suscripcion" method="post" action="enviar.php">
             <div class="form-group">
               <input
                 type="text"
@@ -440,7 +471,7 @@
       <p class="m-0 text-center text-white">Jano Por Todos no asumirá ninguna responsabilidad sobre inexactitudes o usos inadecuados de los contenidos de su sitio web.</p>
       <p class="m-0 text-center text-white">
         &copy;
-        <a class="text-primary font-weight-bold" href="#">Jano por todos</a>.
+        <a class="text-primary font-weight-bold" href="#">Jano Por Todos</a>.
         Todos los derechos reservados.
       </div>
 
