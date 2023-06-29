@@ -42,7 +42,7 @@
           class="navbar-brand font-weight-bold text-secondary"
           style="font-size: 50px"
         >
-          <img src="img/logo_jano_por_todos.png" width=80 alt="" />
+          <img src="img/logo_jano_por_todos.png" width=70 alt="" />
           <span class="text-primary">Jano Por Todos</span>
         </a>
         <button
@@ -93,30 +93,15 @@
                 <a href="acercaDe.html #CáncerInfantoJuvenil " class="dropdown-item">Cáncer infanto juvenil</a>
                 <a href="acercaDe.html #MasAllaDeLoMedico" class="dropdown-item">Más allá de lo médico</a>
                 <a href="acercaDe.html #LosDerechos" class="dropdown-item">Los derechos</a>
+                <a href="acercaDe.html #Legislacion" class="dropdown-item">Legislación</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="nav-item dropdown">
-          <button class="btn btn-secondary px-5" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Colaborá ahora</button>
-          <div class="dropdown-menu">
-            <p class="m-0 px-2">Voluntarios</p>
-            <button type="button" class="btn px-4" data-toggle="modal" data-target="#ModalProfesionales">
-              Profesionales
-            </button>
-            <button type="button" class="btn px-4" data-toggle="modal" data-target="#ModalNoProfesionales">
-              No profesionales
-            </button>
-            <p class="m-0 px-2">Donaciones</p>
-            <button type="button" class="btn px-4" data-toggle="modal" data-target="#ModalEmpresas">
-              Empresas
-            </button>
-            <button type="button" class="btn px-4" data-toggle="modal" data-target=#ModalDonaciones>
-              Personas
-            </button>
-          </div>
-        </div>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target=#ModalDonaciones>
+          Colaborá ahora
+        </button>
       </div>
     </nav>
   </div>
@@ -168,261 +153,57 @@
       </div>
     </div>
 
-    <!-- -->
-     <!-- Modal Profesionales-->
-     <div class="modal fade" id="ModalProfesionales" tabindex="-1" role="dialog" aria-labelledby="ModalProfesionalesTitle" aria-hidden="true">
+    
+    <!-- Modal donaciones -->
+    <div class="modal fade" id="ModalDonaciones" tabindex="-1" role="dialog" aria-labelledby="ModalDonaciones" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalProfesionalesTitle">Ingresá tus datos</h5>
+            <h5>Donaciones</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form class="needs-validation" novalidate>
-            <div class="modal-body">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="sr-only" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre"  required>
-                    <div class="invalid-feedback">
-                        Proporcione un nombre válido
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="sr-only" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="apellido"  required>
-                    <div class="invalid-feedback">
-                        Proporcione un apellido válido
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputDate">Fecha de nacimiento</label>
-                  <input type="date" class="form-control" id="fechaNac" placeholder="dd/mm/yyyy" required>
-                  <div class="invalid-feedback">
-                    Proporcione una fecha válida.
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPhone">Telefono</label>
-                    <div class="input-group">
-                      <div class="input-group-text">+54</div>
-                      <input type="tel" class="form-control" id="telefono" required pattern="[0-9]{9,10}">
-                      <div class="invalid-feedback">
-                          Proporcione un telefono válido
-                      </div>
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputCiudad">Ciudad</label>
-                  <input type="text" class="form-control" id="ciudad" required>
-                  <div class="invalid-feedback">
-                    Proporcione una ciudad válida
-                  </div>
-                </div>
-              
-                <div class="form-group">
-                  <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="email" required>
-                    <div class="invalid-feedback">
-                      Proporcione un email válido
-                    </div>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputOficio">Oficio</label>
-                  <input type="text" class="form-control" id="oficio" required>
-                  <div class="invalid-feedback">
-                    Proporcione un oficio válido
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputProfesion">Profesión</label>
-                  <input type="text" class="form-control" id="inputCapacitacion" required>
-                  <div class="invalid-feedback">
-                    Proporcione una profesión válida
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputCapacitacion">Capacitación en especialidad (opcional)</label>
-                  <input type="text" class="form-control" id="inputCapacitacion" >
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputCV">Adjunte su CV</label>
-                  <input type="file" class="file" id="inputCV" required>
-                  <div class="invalid-feedback">
-                    Adjunte su CV
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button class="btn btn-primary" type="submit">Enviar formulario</button>                    </div>
-          </form>
+          <div class="modal-content py-3 px-2">        
+              <h3 class="modal-title text-center" id="ModalDonaciones">
+                Juntos podemos hacer grandes cosas, ¡doná hoy y sé parte de Jano Por Todos!</h3>
+          </div>
+          <div class="modal-body">
+            <button class="btn btn-secondary btn-block border-0 py-3" data-toggle="modal" data-target=#ModalMonto data-dismiss="modal" aria-label="Close">
+              Donar una única vez
+            </button>
+            <a class="btn btn-secondary btn-block border-0 py-3 text-white" mp-mode="dftl" href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848746ac9a01874861e5e400b2" name="MP-payButton" >Donar mensualmente</a>
+          </div>
         </div>
       </div>
     </div>
-    <!-- Modal NoProfesionales-->
-    <div class="modal fade" id="ModalNoProfesionales" tabindex="-1" role="dialog" aria-labelledby="ModalNoProfesionalesTitle" aria-hidden="true">
+
+    <!-- Modal monto -->
+    <div class="modal fade" id="ModalMonto" tabindex="-1" role="dialog" aria-labelledby="ModalMonto" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalNoProfesionalesTitle">Ingresá tus datos</h5>
+            <h5> Seleccioná el monto a donar </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form class="needs-validation" novalidate>
-            <div class="modal-body">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="sr-only">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" required>
-                  <div class="invalid-feedback">
-                    Proporcione un nombre válido.
-                  </div>
+          <div class="modal-content py-5 px-2">        
+              <div class="row"> 
+                <div class="col-lg-4 col-md-6 pb-1">
+                  <a class="btn btn-success btn-block border-0 py-3 text-white" mp-mode="dftl" href="http://mpago.la/2vTMs2H" name="MP-payButton" > $1000</a> 
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="sr-only">Apellido</label>
-                  <input type="text" class="form-control" id="apellido" required>
-                  <div class="invalid-feedback">
-                    Proporcione un nombre válido.
-                  </div>
+                <div class="col-lg-4 col-md-6 pb-1">
+                  <a class="btn btn-primary btn-block border-0 py-3 text-white" mp-mode="dftl" href="http://mpago.la/2vTMs2H" name="MP-payButton" > $2000</a> 
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="inputDate">Fecha de nacimiento</label>
-                  <input type="datatime-local" class="form-control" id="fechaNac" placeholder="dd/mm/yyyy" required>
-                  <div class="invalid-feedback">
-                    Proporcione una fecha válida.
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPhone">Telefono</label>
-                  <div class="input-group">
-                    <div class="input-group-text">+54</div>
-                    <input type="tel"class="form-control" id="telefono" required pattern="[0-9]{9,10}">
-                    <div class="invalid-feedback">
-                      Proporcione un telefono válido.
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputCiudad">Ciudad</label>
-                  <input type="text" class="form-control" id="ciudad" required>
-                  <div class="invalid-feedback">
-                    Proporcione una ciudad válida.
-                  </div>
+                <div class="col-lg-4 col-md-6 pb-1">
+                  <a class="btn btn-danger btn-block border-0 py-3 text-white" mp-mode="dftl" href="http://mpago.la/2vTMs2H" name="MP-payButton" > $5000</a> 
                 </div>
               </div>
-              <div class="form-group">
-                <label for="inputEmail">Email</label>
-                  <input type="email" class="form-control" id="email" required>
-                  <div class="invalid-feedback">
-                    Proporcione un email válido.
-                  </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputOficio">Oficio</label>
-                  <input type="text" class="form-control" id="oficio" required>
-                  <div class="invalid-feedback">
-                    Proporcione un oficio válido.
-                  </div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="area">Área de posible desarrollo</label>
-                  <select id="area" class="form-control" required>
-                    <option value="">Seleccionar...</option>
-                    <option>Comunicación</option>
-                    <option>Eventos</option>
-                    <option>Donaciones</option>
-                    <option>Mantenimiento y acondicionamiento de sede</option>
-                    <option>Otros</option>
-                  </select>
-                  <div class="invalid-feedback">Seleccione una opción válida</div>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputCapacitacion">Capacitación en especialidad (opcional)</label>
-                  <input type="text" class="form-control" id="capacitacion">
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button class="btn btn-primary" type="submit">Enviar formulario</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Empresas -->
-    <div class="modal fade" id="ModalEmpresas" tabindex="-1" role="dialog" aria-labelledby="ModalEmpresasTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="ModalEmpresasTitle">Ingresá los datos de la empresa</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
           </div>
-          <form class="needs-validation" novalidate>
-            <div class="modal-body">
-              <div class="form-row">
-                <div class="form-group col-12">
-                  <label for="sr-only">Nombre de la empresa</label>
-                  <input type="text" class="form-control" name="nombreEmpresa" id="nombreEmpresa" required>
-                  <div class="invalid-feedback">
-                    Proporcione un nombre válido.
-                  </div>
-                </div>
-                <div class="form-group col-12">
-                  <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" name="emailEmpresa" id="emailEmpresa" required>
-                    <div class="invalid-feedback">
-                      Proporcione un email válido.
-                    </div>
-                </div>
-              
-                <div class="form-group col-12">
-                  <label for="inputMotivo">Motivo de contacto</label>
-                  <input type="text" class="form-control" name="motivo" id="motivo" required>
-                  <div class="invalid-feedback">
-                    Proporcione un motivo válido.
-                  </div>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group mb-3">
-                  <label for="inputPropuestas">Propuestas de acciones de colaboración y participación</label>
-                  <textarea type="text" class="form-control" name="propuestas" id="propuestas" required></textarea>
-                    <div class="invalid-feedback">
-                      Proporcione una propuesta válida.
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                  <label for="inputHorarioDisp">Días y horarios disponibles para coordinar reuniones</label>
-                  <textarea type="text" class="form-control" name="horarioDisp" id="horarioDisp" required></textarea>
-                  <div class="invalid-feedback">
-                    Proporcione horarios válidos.
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button class="btn btn-primary" type="submit">Enviar formulario</button>
-              </div>
-            </div>
-          </form>
-          
         </div>
       </div>
     </div>
-
-    <!--  -->
-
     <div
       class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5"
     >
