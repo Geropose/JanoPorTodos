@@ -246,12 +246,14 @@
           <div class="col-lg-7 mb-5">
             <div class="contact-form">
               <div id="success"></div>
-              <form formType="contacto" class="needs-validation" novalidate method="post" action="enviar.php">
+              <form class="needs-validation" novalidate method="post" action="enviar.php">
+                <input type="hidden" name="formType" value="contacto">
                 <div class="control-group">
                   <input
                     type="text"
                     class="form-control"
                     id="nombre"
+                    name="nombre"
                     placeholder="Nombre y apellido"
                     required="required"
                     data-validation-required-message="Por favor ingresa tu nombre y apellido"
@@ -261,6 +263,7 @@
                 <div class="control-group">
                   <input
                     type="email"
+                    name="email"
                     class="form-control"
                     id="email"
                     placeholder="Email"
@@ -274,6 +277,7 @@
                     type="text"
                     class="form-control"
                     id="asunto"
+                    name="asunto"
                     placeholder="Asunto"
                     required="required"
                     data-validation-required-message="Por favor ingresa un asunto"
@@ -285,6 +289,7 @@
                     class="form-control"
                     rows="6"
                     id="mensaje"
+                    name="mensaje"
                     placeholder="Mensaje"
                     required="required"
                     data-validation-required-message="Por favor ingresa tu mensaje"
@@ -436,12 +441,14 @@
         <div class="col-lg-3 col-md-6 mb-5">
           <h3 class="text-primary mb-4">Suscribirse a noticias</h3>
           <form formType= "suscripcion" method="post" action="enviar.php">
+            <input type="hidden" name="formType" value="suscripcion">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control border-0 py-4"
                 placeholder="Nombre"
                 required="required"
+                name="nombre"
               />
             </div>
             <div class="form-group">
@@ -450,6 +457,7 @@
                 class="form-control border-0 py-4"
                 placeholder="Correo electrónico"
                 required="required"
+                name="email"
               />
             </div>
             <div>

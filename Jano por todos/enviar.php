@@ -1,112 +1,33 @@
 <?php
+ require_once "vendor/autoload.php";
+ require_once "mail/JanoMailer.php";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $formType = $_POST['formType'];
 
     if ($formType === 'empresa') {
         // Procesamiento del formulario de contacto
-        $nombre = $_POST['nombreEmpresa'];
-        $email = $_POST['emailEmpresa'];
-        $motivo = $_POST['motivo'];
-		$propuestas = $_POST['propuestas'];
-		$horarios = $_POST['horarioDisp'];
+        $mailer = JanoMailer::getMailerEmpresa('Mensaje de contacto de empresa', $_POST['nombreEmpresa'], $_POST['emailEmpresa'], $_POST['motivo'], $_POST['propuestas'], $_POST['horarioDisp']);
 
-		$mensaje = "La empresa $nombre se desea contactar debido a  $motivo.\n Sus propuestas son: $propuestas.\n Los horarios disponibles son: $horarios. \n Email: $email.";
-
-        $to = 'janoportodos@gmail.com';
-        $subject = 'Mensaje de contacto de empresa';
-
-        if (mail($to, $subject, $mensaje)) {
-            echo 'Correo de contacto enviado exitosamente.';
-        } else {
-            echo 'Error al enviar el correo de contacto.';
-        }
     } elseif ($formType === 'no profesionales') {
-
-        $nombre = $_POST['nombre'];
-		$apellido = $_POST['apellido'];
-		$nac = $_POST['fechaNac'];
-		$telefono = $_POST['telefono'];
-		$ciudad = $_POST['ciudad'];
-        $email = $_POST['email'];
-        $oficio = $_POST['oficio'];
-		$area = $_POST['area'];
-		$capacitacion = $_POST['capacitacion'];
-
-        $to = 'janoportodos@gmail.com';
-        $subject = 'Mensaje de voluntario no profesional';
-        $mensaje = "Datos del voluntario:\n Nombre y apellido: $nombre $apellido. \n Fecha de nacimiento: $nac. \n Teléfono: $telefono. \n Ciudad: $ciudad. \n Email: $email. \n Oficio: $oficio. \n Posible área de desarrollo: $area. \n Capacitación en: $capacitacion.";
-
-        if (mail($to, $subject, $mensaje)) {
-            echo 'Correo de suscripción enviado exitosamente.';
-        } else {
-            echo 'Error al enviar el correo de suscripción.';
-        }
-    }
-    elseif ($formType === 'contacto') {
-
-        $nombre = $_POST['nombre'];
-        $email = $_POST['email'];
-		$asunto = $_POST['asunto'];
-		$mensaje = "Nombre: $nombre \n. Email: $email \n . " + $_POST['mensaje'];
-    
-        $to = 'janoportodos@gmail.com';
-
-        if (mail($to, $asunto, $mensaje)) {
-            echo 'Correo de suscripción enviado exitosamente.';
-        } else {
-            echo 'Error al enviar el correo de suscripción.';
-        }
-    }
-    elseif ($formType === 'suscripcion') {
-
-        $nombre = $_POST['nombre'];
-        $email = $_POST['email'];
-		$asunto = "Nueva suscripción";
-		$mensaje = "Nombre: $nombre \n. Email: $email \n . ";
-    
-        $to = 'janoportodos@gmail.com';
-
-        if (mail($to, $asunto, $mensaje)) {
-            echo 'Correo de suscripción enviado exitosamente.';
-        } else {
-            echo 'Error al enviar el correo de suscripción.';
-        }
-    }
-	elseif ($formType === 'profesionales') {
-
-        $nombre = $_POST['nombre'];
-		$apellido = $_POST['apellido'];
-		$nac = $_POST['fechaNac'];
-		$telefono = $_POST['telefono'];
-		$ciudad = $_POST['ciudad'];
-        $email = $_POST['email'];
-		$profesion = $_POST['profesion'];
-		$capacitacion = $_POST['capacitacion'];
-		$cv = $_FILES['CV'];
-        // Ruta temporal del archivo adjunto
-        $archivo_temporal = $_FILES["CV"]["tmp_name"];
-        
-        // Nombre original del archivo adjunto
-        $nombre_adjunto = $_FILES["CV"]["name"];
-        
-        // Contenido del archivo adjunto
-        $contenido_adjunto = file_get_contents($archivo_temporal);
-        
-        $to = 'areapsicosocialjxt@gmail.com';
-        $subject = 'Mensaje de voluntario profesional';
-        $mensaje = "Datos del profesional:\n Nombre y apellido: $nombre $apellido. \n Fecha de nacimiento: $nac. \n Teléfono: $telefono. \n Ciudad: $ciudad. \n Email: $email. \n Profesión: $profesion. \n Capacitación en: $capacitacion.";
-        
-        // Adjuntar el archivo al mensaje
-        $mensaje .= "Nombre del archivo = $nombre_adjunto\n";
-        $mensaje_correo .= chunk_split(base64_encode($contenido_adjunto)) . "\r\n";
-
-        if (mail($to, $subject, $mensaje)) {
-            echo 'Correo de suscripción enviado exitosamente.';
-        } else {
-            echo 'Error al enviar el correo de suscripción.';
-        }
+        $mailer = JanoMailer::getMailerNoProfesionales('Mensaje de voluntario no profesional', $_POST['nombre'], $_POST['apellido'], $_POST['fechaNac'],
+            $_POST['telefono'], $_POST['ciudad'], $_POST['email'], $_POST['oficio'], $_POST['area'], $_POST['capacitacion']);
+    } elseif ($formType === 'contacto') {
+        $mailer = JanoMailer::getMailerContacto($_POST['asunto'], $_POST['nombre'], $_POST['email'], $_POST['mensaje']);
+    } elseif ($formType === 'suscripcion') {
+        $mailer = JanoMailer::getMailerSuscripcion("Nueva suscripción", $_POST['nombre'], $_POST['email']);
+    } elseif ($formType === 'profesionales') {
+        $mailer = JanoMailer::getMailerProfesionales('Mensaje de voluntario profesional', $_POST['nombre'], $_POST['apellido'],
+            $_POST['fechaNac'], $_POST['telefono'], $_POST['ciudad'], $_POST['email'], $_POST['profesion'], $_POST['capacitacion'], $_FILES['CV']);
     } else {
         echo 'Tipo de formulario inválido.';
     }
+
+    header('Content-type: application/json');
+    try {
+        $mailer->send();
+        echo json_encode(['status'=>'OK','message'=>'Correo enviado exitosamente.']);
+    } catch (Exception $e) {
+        echo json_encode(['status'=>'OK','message'=>'Error al enviar el correo.' . $mailer->ErrorInfo]);
+    }
 }
-?>
