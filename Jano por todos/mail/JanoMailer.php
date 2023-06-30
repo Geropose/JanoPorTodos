@@ -15,7 +15,7 @@ class JanoMailer
     {
         $mailer = new \PHPMailer\PHPMailer\PHPMailer();
         //Server settings
-        $mailer->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+        //$mailer->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mailer->isSMTP();                                            //Send using SMTP
         $mailer->Host = $_ENV['SMTP_HOST'];                     //Set the SMTP server to send through
         $mailer->SMTPAuth = true;                                   //Enable SMTP authentication
