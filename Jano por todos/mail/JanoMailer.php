@@ -2,6 +2,13 @@
 class JanoMailer
 {
 
+    protected static function getBody($type,$vars) {
+        $loader = new \Twig\Loader\FilesystemLoader(dirname(__DIR__)."/html");
+        $twig = new \Twig\Environment($loader,[]);
+
+        return $twig->render("$type.twig.html",$vars);
+    }
+
     protected static function getMailer($subject,$fromName='Jano Por Todos',$replyTo='janoportodos@gmail.com')
     {
         $mailer = new \PHPMailer\PHPMailer\PHPMailer();
@@ -16,9 +23,10 @@ class JanoMailer
         $mailer->Port = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
 
         $mailer->isHTML(true);                                  //Set email format to HTML
-        $mailer->setFrom('lucas.vidaguren@gmail.com', $fromName);
+        $mailer->setFrom('janoportodos@gmail.com', $fromName);
 
-        $mailer->addAddress('janoportodos@gmail.com', 'Jano Por Todos');     //Add a recipient
+        //$mailer->addAddress('janoportodos@gmail.com', 'Jano Por Todos');     //Add a recipient
+        $mailer->addAddress('lucas.vidaguren@gmail.com', 'Jano Por Todos');     //Add a recipient
         $mailer->addReplyTo($replyTo, $fromName);
 
         $mailer->Subject = $subject;
@@ -38,10 +46,7 @@ class JanoMailer
     {
 
         $mailer = self::getMailer($subject,$nombre. " ($email)",$email);
-        $mailer->Body = "La empresa $nombre se desea contactar debido a  $motivo.
-             Sus propuestas son: $propuestas.
-             Los horarios disponibles son: $horarios. 
-             Email: $email.";
+        $mailer->Body = self::getBody('empresa',compact('nombre','email','motivo','propuestas','horarios'));
 
         return $mailer;
     }
@@ -101,9 +106,7 @@ class JanoMailer
     public static function getMailerSuscripcion($subject, $nombre, $email)
     {
         $mailer = self::getMailer($subject,"$nombre $email");
-        $mailer->Body =
-            "Nombre: $nombre
-         Email: $email";
+        $mailer->Body = self::getBody('suscripcion', compact('nombre','email'));
         return $mailer;
     }
 
