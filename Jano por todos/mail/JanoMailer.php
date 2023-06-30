@@ -25,10 +25,9 @@ class JanoMailer
         $mailer->Port = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
 
         $mailer->isHTML(true);                                  //Set email format to HTML
-        $mailer->setFrom('janoportodos@gmail.com', $fromName);
+        $mailer->setFrom($_ENV['SMTP_FROM'], $fromName);
 
-        //$mailer->addAddress('janoportodos@gmail.com', 'Jano Por Todos');     //Add a recipient
-        $mailer->addAddress('lucas.vidaguren@gmail.com', 'Jano Por Todos');     //Add a recipient
+        $mailer->addAddress($_ENV['SMTP_TO'], 'Jano Por Todos');     //Add a recipient
         $mailer->addReplyTo($replyTo, $fromName);
 
         $mailer->Subject = $subject;
@@ -106,10 +105,7 @@ class JanoMailer
     public static function getMailerContacto($subject, $nombre, $email, $mensaje)
     {
         $mailer = self::getMailer($subject, "$nombre ($email)");
-        $mailer->Body =
-            "Nombre: $nombre
-        Email: $email 
-         $mensaje";
+        $mailer->Body = self::getBody('contacto',compact('nombre','email','mensaje'));
         return $mailer;
     }
 
@@ -141,16 +137,8 @@ class JanoMailer
         $mailer = self::getMailer($subject, "$nombre $apellido ($email)");
         $mailer->addAddress('areapsicosocialjxt@gmail.com');
         $nombreAdjunto = $CV['name'];
-        $mailer->Body =
-            "Datos del profesional:
-         Nombre y apellido: $nombre $apellido. 
-         Fecha de nacimiento: $fechaNac. 
-         Teléfono: $telefono. 
-         Ciudad: $ciudad. 
-         Email: $email. 
-         Profesión: $profesion. 
-         Capacitación en: $capacitacion.
-         Nombre del archivo = $nombreAdjunto";
+        $mailer->Body = self::getBody('profesionales',compact('nombre','apellido','fechaNac',
+                                                              'telefono','ciudad','email','profesion','capacitacion','nombreAdjunto'));
 
         $mailer->addAttachment($CV['tmp_name'], $nombreAdjunto);
 

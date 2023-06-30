@@ -1,7 +1,7 @@
 {% extends 'mail.twig.html' %}
 
 {% block content %}
-<h2>Datos del voluntario</h2>
+<h2>Datos del profesional</h2>
 <table>
     <tr>
         <th> Nombre completo </th>
@@ -9,7 +9,7 @@
     </tr>
     <tr>
         <th> Fecha de nacimiento </th>
-        <td>{{ nac }}</td>
+        <td>{{ fechaNac }}</td>
     </tr>
     <tr>
         <th> Teléfono </th>
@@ -24,17 +24,16 @@
         <td>{{ email }}</td>
     </tr>
     <tr>
-        <th> Oficio </th>
-        <td>{{ oficio }}</td>
-    </tr>
-    <tr>
-        <th> Posible área de desarrollo </th>
-        <td>{{ area }}</td>
+        <th> Profesión </th>
+        <td>{{ profesion }}</td>
     </tr>
     <tr>
         <th> Capacitación en </th>
         <td>{{ capacitacion }}</td>
     </tr>
-
+    <tr>
+        <th> Nombre del archivo </th>
+        <td>{{ nombreAdjunto }}</td>
+    </tr>
 </table>
 {% endblock %}
