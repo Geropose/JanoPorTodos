@@ -1,0 +1,27 @@
+{% extends 'mail.twig.html' %}
+
+{% block content %}
+<div>
+    La empresa {{ nombre }} se desea contactar debido a {{ motivo }}.
+</div>
+<div>
+    Sus propuestas son:
+    <blockquote>
+        <pre>
+            {{ propuestas }}.
+        </pre>
+    </blockquote>
+</div>
+<div>
+    Los horarios disponibles son:
+    <blockquote>
+        <pre>
+            {{ horarios }}.
+        </pre>
+    </blockquote>
+</div>
+<div>
+    <strong>Email:</strong> {{ email }}.
+</div>
+
+{% endblock %}

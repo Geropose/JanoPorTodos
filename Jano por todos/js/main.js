@@ -140,4 +140,44 @@
         window.$MPC_loaded !== true ? (window.addEventListener("message", $MPC_message)) : null; 
         */
 
-    
+    /** Forms de envio de mailenviar **/
+    (function () {
+        'use strict'
+
+        var forms = document.querySelectorAll('form[action="enviar.php"]')
+
+
+         Array.prototype.slice.call(forms)
+             .forEach(function (form) {
+
+
+                 form.addEventListener('submit', function (event) {
+                     event.preventDefault()
+                     event.stopPropagation()
+
+                     var formData = new FormData(form);
+
+                     $.ajax({
+                         url: $(form).attr('action'),
+                         method: 'POST',
+                         data: formData,
+                         cache: false,
+                         contentType: false,
+                         processData: false
+                     }).done(function (data) {
+                         console.log(data)
+                         if(data.status==='OK') {
+                             $(form).removeClass('was-validated');
+                             $(form).trigger('reset');
+                             $(form).parent().before("<div class='alert alert-success'>"+data.message+"</div>");
+                         }
+                         else
+                             $(form).parent().before("<div class='alert alert-warning'>"+data.message+"</div>");
+                     })
+                         .fail(function (){
+                             $(form).parent().before("<div class='alert alert-danger'>Error desconocido en el envío</div>");
+                         });
+
+                 }, false)
+             })
+    })();
