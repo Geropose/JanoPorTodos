@@ -3915,8 +3915,10 @@ input[type=button].btn-block {
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
-  white-space: nowrap;
+  text-overflow:ellipsis;
+  max-width: 100%;
 }
+
 .navbar-brand:hover, .navbar-brand:focus {
   text-decoration: none;
 }
@@ -9587,24 +9589,6 @@ h3 {
   padding: 0;
   list-style-type: none;
 }
-
-/* .navbar-nav li:hover > ul.dropdown-menu {
-  display:block;
-} */
-/* .dropdown-submenu {
-  position:relative;
-}
-.dropdown-submenu > .dropdown-menu {
-  top: 50px;
-  left: 100%; 
-  margin-top:-6px;
-  display:contents;
-}
-
-.dropdown-menu > li > a:hover:after {
-  text-decoration: underline;
-  transform: rotate(90deg);
-} */
 
 .form-checkout {
   display: flex;
