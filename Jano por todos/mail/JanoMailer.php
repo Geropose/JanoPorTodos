@@ -8,7 +8,7 @@ class JanoMailer
         $loader = new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . "/html");
         $twig = new \Twig\Environment($loader, []);
 
-        return $twig->render("$type.twig.html", $vars);
+        return $twig->render("mail/$type.twig", $vars);
     }
 
     protected static function getMailer($subject, $fromName = 'Jano Por Todos', $replyTo = 'janoportodos@gmail.com')
