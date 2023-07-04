@@ -1,5 +1,3 @@
-{% set post1 = '648217694015475' %}
-{% set post2 = '648664413970803' %}
 
 <div class="text-center pb-2">
     <p class="section-title px-5">
@@ -10,11 +8,11 @@
         <div class="container pb-3">
             <div class="row">
                 <div class="col-12 col-md-5 h-auto">
-                    {% include 'html/components/noticia-facebook.twig' with {'postId': post1} %}
+                    {% include 'html/components/noticia-facebook.twig' with {'postId': latestNews.0} %}
 
                 </div>
                 <div class="col-12 col-md-5 offset-md-1 mt-3 mt-md-0 h-auto">
-                    {% include 'html/components/noticia-facebook.twig' with {'postId': post2} %}
+                    {% include 'html/components/noticia-facebook.twig' with {'postId': latestNews.1} %}
                 </div>
             </div>
         </div>
