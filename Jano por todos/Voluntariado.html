@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Jano Por Todos</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
     <link rel="shortcut icon" href="img/logo_jano_por_todos.png">
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon" />
@@ -128,6 +130,11 @@
               src="img/concientizacion.jpeg"
               alt=""
             />
+            <img
+            class="img-fluid rounded mb-5 mb-lg-0"
+            src="img/Voluntariado.jpeg"
+            alt=""
+            />
           </div>
           <div class="col-lg-7">
             <div class="bg-light p-5"
@@ -139,7 +146,8 @@
                 <button class="btn btn-primary px-4" data-toggle="modal" data-target="#ModalNoProfesionales">
                   Quiero ser parte!
                 </button>
-            </div>            
+            </div>           
+          </div>
           </div>
         </div>
       </div>
@@ -156,26 +164,25 @@
             </button>
           </div>
           <form formType= "no profesionales" class="needs-validation" novalidate method="post" action="enviar.php">
-            <input type="hidden" name="formType" value="no profesionales">
             <div class="modal-body">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="sr-only">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" name="nombre" required>
+                  <input type="text" class="form-control" id="nombre" required>
                   <div class="invalid-feedback">
                     Proporcione un nombre válido.
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="sr-only">Apellido</label>
-                  <input type="text" class="form-control" id="apellido" name="apellido" required>
+                  <input type="text" class="form-control" id="apellido" required>
                   <div class="invalid-feedback">
                     Proporcione un nombre válido.
                   </div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputDate">Fecha de nacimiento</label>
-                  <input type="datatime-local" class="form-control" id="fechaNac" name="fechaNac" placeholder="dd/mm/yyyy" required>
+                  <input type="datatime-local" class="form-control" id="fechaNac" placeholder="dd/mm/yyyy" required>
                   <div class="invalid-feedback">
                     Proporcione una fecha válida.
                   </div>
@@ -184,7 +191,7 @@
                   <label for="inputPhone">Telefono</label>
                   <div class="input-group">
                     <div class="input-group-text">+54</div>
-                    <input type="tel"class="form-control" id="telefono" name="telefono" required pattern="[0-9]{9,10}">
+                    <input type="tel"class="form-control" id="telefono" required pattern="[0-9]{9,10}">
                     <div class="invalid-feedback">
                       Proporcione un telefono válido.
                     </div>
@@ -192,7 +199,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputCiudad">Ciudad</label>
-                  <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+                  <input type="text" class="form-control" id="ciudad" required>
                   <div class="invalid-feedback">
                     Proporcione una ciudad válida.
                   </div>
@@ -200,7 +207,7 @@
               </div>
               <div class="form-group">
                 <label for="inputEmail">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" required>
+                  <input type="email" class="form-control" id="email" required>
                   <div class="invalid-feedback">
                     Proporcione un email válido.
                   </div>
@@ -208,7 +215,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputOficio">Oficio</label>
-                  <input type="text" class="form-control" id="oficio" name="oficio" required>
+                  <input type="text" class="form-control" id="oficio" required>
                   <div class="invalid-feedback">
                     Proporcione un oficio válido.
                   </div>
@@ -227,7 +234,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputCapacitacion">Capacitación en especialidad (opcional)</label>
-                  <input type="text" class="form-control" id="capacitacion" name="capacitacion">
+                  <input type="text" class="form-control" id="capacitacion">
                 </div>
               </div>
             </div>
@@ -410,14 +417,12 @@
         <div class="col-lg-3 col-md-6 mb-5">
           <h3 class="text-primary mb-4">Suscribirse a noticias</h3>
           <form formType= "suscripcion" method="post" action="enviar.php">
-            <input type="hidden" name="formType" value="suscripcion">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control border-0 py-4"
                 placeholder="Nombre"
                 required="required"
-                name="nombre"
               />
             </div>
             <div class="form-group">
@@ -426,7 +431,6 @@
                 class="form-control border-0 py-4"
                 placeholder="Correo electrónico"
                 required="required"
-                name="email"
               />
             </div>
             <div>
@@ -465,11 +469,6 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
   </body>
 </html>
