@@ -21,10 +21,12 @@ class JanoMailer
         $mailer->SMTPAuth = true;                                   //Enable SMTP authentication
         $mailer->Username = $_ENV['SMTP_USER'];                     //SMTP username
         $mailer->Password = $_ENV['SMTP_PASSWORD'];                               //SMTP password
-        $mailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-        $mailer->Port = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
+        $tls = filter_var(      $_ENV['SMTP_TLS'], FILTER_VALIDATE_BOOLEAN);
+        if($tls)
+            $mailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mailer->Port = $_ENV['SMTP_PORT'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
 
-        $mailer->isHTML(true);                                  //Set email format to HTML
+        $mailer->isHTML($_ENV['SMTP_AUTH']);                                  //Set email format to HTML
         $mailer->setFrom($_ENV['SMTP_FROM'], $fromName);
 
         $mailer->addAddress($_ENV['SMTP_TO'], 'Jano Por Todos');     //Add a recipient

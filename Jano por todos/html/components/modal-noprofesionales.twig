@@ -9,65 +9,66 @@
                 </button>
             </div>
             <form formType= "no profesionales" class="needs-validation" novalidate method="post" action="enviar.php">
+                <input type="hidden" name="formType" value="no profesionales">
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="sr-only">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" required>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required>
                             <div class="invalid-feedback">
                                 Proporcione un nombre válido.
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="sr-only">Apellido</label>
-                            <input type="text" class="form-control" id="apellido" required>
+                            <input type="text" class="form-control" id="apellido" name="apellido" required>
                             <div class="invalid-feedback">
                                 Proporcione un nombre válido.
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputDate">Fecha de nacimiento</label>
-                            <input type="datatime-local" class="form-control" id="fechaNac" placeholder="dd/mm/yyyy" required>
+                            <label for="fechaNac">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" id="fechaNac" name="fechaNac" placeholder="dd/mm/yyyy" required>
                             <div class="invalid-feedback">
                                 Proporcione una fecha válida.
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputPhone">Telefono</label>
+                            <label for="telefono">Telefono</label>
                             <div class="input-group">
                                 <div class="input-group-text">+54</div>
-                                <input type="tel"class="form-control" id="telefono" required pattern="[0-9]{9,10}">
+                                <input type="tel"class="form-control" id="telefono" name="telefono" required pattern="[0-9]{9,10}">
                                 <div class="invalid-feedback">
                                     Proporcione un telefono válido.
                                 </div>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputCiudad">Ciudad</label>
-                            <input type="text" class="form-control" id="ciudad" required>
+                            <label for="ciudad">Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" required>
                             <div class="invalid-feedback">
                                 Proporcione una ciudad válida.
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="email" required>
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email"  name="email" required>
                         <div class="invalid-feedback">
                             Proporcione un email válido.
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputOficio">Oficio</label>
-                            <input type="text" class="form-control" id="oficio" required>
+                            <label for="oficio">Oficio</label>
+                            <input type="text" class="form-control" id="oficio" name="oficio" required>
                             <div class="invalid-feedback">
                                 Proporcione un oficio válido.
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="area">Área de posible desarrollo</label>
-                            <select id="area" class="form-control" required>
+                            <select id="area" name="area" class="form-control" required>
                                 <option value="">Seleccionar...</option>
                                 <option>Comunicación</option>
                                 <option>Eventos</option>
@@ -79,7 +80,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputCapacitacion">Capacitación en especialidad (opcional)</label>
-                            <input type="text" class="form-control" id="capacitacion">
+                            <input type="text" class="form-control" id="capacitacion" name="capacitacion">
                         </div>
                     </div>
                 </div>

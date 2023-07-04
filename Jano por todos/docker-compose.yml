@@ -9,3 +9,7 @@ services:
       - "80:80"
     environment:
       - TZ=America/Buenos_Aires
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
