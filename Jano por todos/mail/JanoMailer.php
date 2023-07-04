@@ -2,8 +2,13 @@
 
 class JanoMailer
 {
+    protected $mailer;
+    public function __construct()
+    {
+        $this->mailer =new \PHPMailer\PHPMailer\PHPMailer();
+    }
 
-    protected static function getBody($type, $vars)
+    protected function getBody($type, $vars)
     {
         $loader = new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . "/html");
         $twig = new \Twig\Environment($loader, []);
@@ -11,7 +16,7 @@ class JanoMailer
         return $twig->render("mail/$type.twig", $vars);
     }
 
-    protected static function getMailer($subject, $fromName = 'Jano Por Todos', $replyTo = 'janoportodos@gmail.com')
+    protected function getMailer($subject, $fromName = 'Jano Por Todos', $replyTo = 'janoportodos@gmail.com')
     {
         $mailer = new \PHPMailer\PHPMailer\PHPMailer();
         //Server settings
@@ -33,7 +38,7 @@ class JanoMailer
         $mailer->addReplyTo($replyTo, $fromName);
 
         $mailer->Subject = $subject;
-
+        $this->mailer =$mailer;
         return $mailer;
     }
 
@@ -43,14 +48,13 @@ class JanoMailer
      * @param $motivo
      * @param $propuestas
      * @param $horarios
-     * @return \PHPMailer\PHPMailer\PHPMailer
+     * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function getMailerEmpresa($subject, $nombre, $email, $motivo, $propuestas, $horarios)
+    public  function sendMailerEmpresa($subject, $nombre, $email, $motivo, $propuestas, $horarios)
     {
-        $mailer = self::getMailer($subject, $nombre . " ($email)", $email);
+        $mailer = $this->getMailer($subject, $nombre . " ($email)", $email);
         $mailer->Body = self::getBody('empresa', compact('nombre', 'email', 'motivo', 'propuestas', 'horarios'));
-
-        return $mailer;
+        $mailer->send();
     }
 
     /**
@@ -63,9 +67,9 @@ class JanoMailer
      * @param $oficio
      * @param $area
      * @param $capacitacion
-     * @return \PHPMailer\PHPMailer\PHPMailer
+     * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function getMailerNoProfesionales(
+    public function sendMailerNoProfesionales(
         $subject,
         $nombre,
         $apellido,
@@ -77,9 +81,9 @@ class JanoMailer
         $area,
         $capacitacion
     ) {
-        $mailer = self::getMailer($subject, "$nombre $apellido ($email)");
+        $mailer = $this->getMailer($subject, "$nombre $apellido ($email)");
 
-        $mailer->Body = self::getBody(
+        $mailer->Body = $this->getBody(
             'noProfesionales',
             compact(
                 'nombre',
@@ -94,7 +98,7 @@ class JanoMailer
             )
         );
         $mailer->addCC($email);
-        return $mailer;
+        $mailer->send();
     }
 
     /**
@@ -102,29 +106,43 @@ class JanoMailer
      * @param $nombre
      * @param $email
      * @param $mensaje
-     * @return \PHPMailer\PHPMailer\PHPMailer
+     * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function getMailerContacto($subject, $nombre, $email, $mensaje)
+    public function sendMailerContacto($subject, $nombre, $email, $mensaje)
     {
-        $mailer = self::getMailer($subject, "$nombre ($email)");
-        $mailer->Body = self::getBody('contacto',compact('nombre','email','mensaje'));
-        return $mailer;
+        $mailer = $this->getMailer($subject, "$nombre ($email)");
+        $mailer->Body = $this->getBody('contacto',compact('nombre','email','mensaje'));
+        $mailer->send();
     }
 
     /**
      * @param $subject
      * @param $nombre
      * @param $email
-     * @return \PHPMailer\PHPMailer\PHPMailer
+     * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function getMailerSuscripcion($subject, $nombre, $email)
+    public function sendMailerSuscripcion($subject, $nombre, $email)
     {
-        $mailer = self::getMailer($subject, "$nombre $email");
-        $mailer->Body = self::getBody('suscripcion', compact('nombre', 'email'));
-        return $mailer;
+        $mailer = $this->getMailer($subject, "$nombre $email");
+        $mailer->Body = $this->getBody('suscripcion', compact('nombre', 'email'));
+        $mailer->send();
     }
 
-    public static function getMailerProfesionales(
+    /**
+     * @param $subject
+     * @param $nombre
+     * @param $apellido
+     * @param $fechaNac
+     * @param $telefono
+     * @param $ciudad
+     * @param $email
+     * @param $profesion
+     * @param $capacitacion
+     * @param $CV
+     * @return void
+     * @throws \PHPMailer\PHPMailer\Exception
+     */
+    public function sendMailerProfesionales(
         $subject,
         $nombre,
         $apellido,
@@ -136,15 +154,22 @@ class JanoMailer
         $capacitacion,
         $CV
     ) {
-        $mailer = self::getMailer($subject, "$nombre $apellido ($email)");
+        $mailer = $this->getMailer($subject, "$nombre $apellido ($email)");
         $mailer->addAddress('areapsicosocialjxt@gmail.com');
         $nombreAdjunto = $CV['name'];
-        $mailer->Body = self::getBody('profesionales',compact('nombre','apellido','fechaNac',
+        $mailer->Body = $this->getBody('profesionales',compact('nombre','apellido','fechaNac',
                                                               'telefono','ciudad','email','profesion','capacitacion','nombreAdjunto'));
 
         $mailer->addAttachment($CV['tmp_name'], $nombreAdjunto);
 
 
-        return $mailer;
+        $mailer->send();
     }
+
+    public function getErrorInfo()
+    {
+        return $this->mailer->ErrorInfo;
+    }
+
+
 }
