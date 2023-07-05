@@ -2,36 +2,44 @@
 
 class JanoMailer
 {
+    protected $mailer;
+    public function __construct()
+    {
+        $this->mailer =new \PHPMailer\PHPMailer\PHPMailer();
+    }
 
-    protected static function getBody($type, $vars)
+    protected function getBody($type, $vars)
     {
         $loader = new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . "/html");
         $twig = new \Twig\Environment($loader, []);
 
-        return $twig->render("$type.twig.html", $vars);
+        return $twig->render("mail/$type.twig", $vars);
     }
 
-    protected static function getMailer($subject, $fromName = 'Jano Por Todos', $replyTo = 'janoportodos@gmail.com')
+    protected function getMailer($subject, $fromName = 'Jano Por Todos', $replyTo = 'janoportodos@gmail.com')
     {
         $mailer = new \PHPMailer\PHPMailer\PHPMailer();
         //Server settings
         //$mailer->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;                      //Enable verbose debug output
         $mailer->isSMTP();                                            //Send using SMTP
         $mailer->Host = $_ENV['SMTP_HOST'];                     //Set the SMTP server to send through
-        $mailer->SMTPAuth = true;                                   //Enable SMTP authentication
+        $auth = filter_var(      $_ENV['SMTP_AUTH'], FILTER_VALIDATE_BOOLEAN);
+        $mailer->SMTPAuth = $auth;                                   //Enable SMTP authentication
         $mailer->Username = $_ENV['SMTP_USER'];                     //SMTP username
         $mailer->Password = $_ENV['SMTP_PASSWORD'];                               //SMTP password
-        $mailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-        $mailer->Port = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
+        $tls = filter_var(      $_ENV['SMTP_TLS'], FILTER_VALIDATE_BOOLEAN);
+        if($tls)
+            $mailer->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+        $mailer->Port = $_ENV['SMTP_PORT'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS
 
-        $mailer->isHTML(true);                                  //Set email format to HTML
+        $mailer->isHTML();                                  //Set email format to HTML
         $mailer->setFrom($_ENV['SMTP_FROM'], $fromName);
 
         $mailer->addAddress($_ENV['SMTP_TO'], 'Jano Por Todos');     //Add a recipient
         $mailer->addReplyTo($replyTo, $fromName);
 
         $mailer->Subject = $subject;
-
+        $this->mailer =$mailer;
         return $mailer;
     }
 
@@ -41,14 +49,13 @@ class JanoMailer
      * @param $motivo
      * @param $propuestas
      * @param $horarios
-     * @return \PHPMailer\PHPMailer\PHPMailer
+     * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function getMailerEmpresa($subject, $nombre, $email, $motivo, $propuestas, $horarios)
+    public  function sendMailerEmpresa($subject, $nombre, $email, $motivo, $propuestas, $horarios)
     {
-        $mailer = self::getMailer($subject, $nombre . " ($email)", $email);
+        $mailer = $this->getMailer($subject, $nombre . " ($email)", $email);
         $mailer->Body = self::getBody('empresa', compact('nombre', 'email', 'motivo', 'propuestas', 'horarios'));
-
-        return $mailer;
+        $mailer->send();
     }
 
     /**
@@ -61,9 +68,9 @@ class JanoMailer
      * @param $oficio
      * @param $area
      * @param $capacitacion
-     * @return \PHPMailer\PHPMailer\PHPMailer
+     * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function getMailerNoProfesionales(
+    public function sendMailerNoProfesionales(
         $subject,
         $nombre,
         $apellido,
@@ -75,9 +82,9 @@ class JanoMailer
         $area,
         $capacitacion
     ) {
-        $mailer = self::getMailer($subject, "$nombre $apellido ($email)");
+        $mailer = $this->getMailer($subject, "$nombre $apellido ($email)");
 
-        $mailer->Body = self::getBody(
+        $mailer->Body = $this->getBody(
             'noProfesionales',
             compact(
                 'nombre',
@@ -92,7 +99,7 @@ class JanoMailer
             )
         );
         $mailer->addCC($email);
-        return $mailer;
+        $mailer->send();
     }
 
     /**
@@ -100,29 +107,43 @@ class JanoMailer
      * @param $nombre
      * @param $email
      * @param $mensaje
-     * @return \PHPMailer\PHPMailer\PHPMailer
+     * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function getMailerContacto($subject, $nombre, $email, $mensaje)
+    public function sendMailerContacto($subject, $nombre, $email, $mensaje)
     {
-        $mailer = self::getMailer($subject, "$nombre ($email)");
-        $mailer->Body = self::getBody('contacto',compact('nombre','email','mensaje'));
-        return $mailer;
+        $mailer = $this->getMailer($subject, "$nombre ($email)");
+        $mailer->Body = $this->getBody('contacto',compact('nombre','email','mensaje'));
+        $mailer->send();
     }
 
     /**
      * @param $subject
      * @param $nombre
      * @param $email
-     * @return \PHPMailer\PHPMailer\PHPMailer
+     * @throws \PHPMailer\PHPMailer\Exception
      */
-    public static function getMailerSuscripcion($subject, $nombre, $email)
+    public function sendMailerSuscripcion($subject, $nombre, $email)
     {
-        $mailer = self::getMailer($subject, "$nombre $email");
-        $mailer->Body = self::getBody('suscripcion', compact('nombre', 'email'));
-        return $mailer;
+        $mailer = $this->getMailer($subject, "$nombre $email");
+        $mailer->Body = $this->getBody('suscripcion', compact('nombre', 'email'));
+        $mailer->send();
     }
 
-    public static function getMailerProfesionales(
+    /**
+     * @param $subject
+     * @param $nombre
+     * @param $apellido
+     * @param $fechaNac
+     * @param $telefono
+     * @param $ciudad
+     * @param $email
+     * @param $profesion
+     * @param $capacitacion
+     * @param $CV
+     * @return void
+     * @throws \PHPMailer\PHPMailer\Exception
+     */
+    public function sendMailerProfesionales(
         $subject,
         $nombre,
         $apellido,
@@ -134,15 +155,22 @@ class JanoMailer
         $capacitacion,
         $CV
     ) {
-        $mailer = self::getMailer($subject, "$nombre $apellido ($email)");
+        $mailer = $this->getMailer($subject, "$nombre $apellido ($email)");
         $mailer->addAddress('areapsicosocialjxt@gmail.com');
         $nombreAdjunto = $CV['name'];
-        $mailer->Body = self::getBody('profesionales',compact('nombre','apellido','fechaNac',
+        $mailer->Body = $this->getBody('profesionales',compact('nombre','apellido','fechaNac',
                                                               'telefono','ciudad','email','profesion','capacitacion','nombreAdjunto'));
 
         $mailer->addAttachment($CV['tmp_name'], $nombreAdjunto);
 
 
-        return $mailer;
+        $mailer->send();
     }
+
+    public function getErrorInfo()
+    {
+        return $this->mailer->ErrorInfo;
+    }
+
+
 }

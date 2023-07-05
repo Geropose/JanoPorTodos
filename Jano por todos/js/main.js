@@ -32,19 +32,20 @@
         return false;
     });
 
-    // Portfolio isotope and filter
-    var portfolioIsotope = $('.portfolio-container').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-    });
+    if($('.portfolio-container').length > 0) {
+        // Portfolio isotope and filter
+        var portfolioIsotope = $('.portfolio-container').isotope({
+            itemSelector: '.portfolio-item',
+            layoutMode: 'fitRows'
+        });
 
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('active');
-        $(this).addClass('active');
+        $('#portfolio-flters li').on('click', function () {
+            $("#portfolio-flters li").removeClass('active');
+            $(this).addClass('active');
 
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
-
+            portfolioIsotope.isotope({filter: $(this).data('filter')});
+        });
+    }
 
     // Post carousel
     $(".post-carousel").owlCarousel({
@@ -169,13 +170,19 @@
                          if(data.status==='OK') {
                              $(form).removeClass('was-validated');
                              $(form).trigger('reset');
-                             $(form).parent().before("<div class='alert alert-success'>"+data.message+"</div>");
+                             $(form).parent().before("<div class='alert alert-success'>"+data.message+" <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+                                 "    <span aria-hidden=\"true\">&times;</span>\n" +
+                                 "  </button></div>");
                          }
                          else
-                             $(form).parent().before("<div class='alert alert-warning'>"+data.message+"</div>");
+                             $(form).parent().before("<div class='alert alert-warning'>"+data.message+" <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+                                 "    <span aria-hidden=\"true\">&times;</span>\n" +
+                                 "  </button></div>");
                      })
                          .fail(function (){
-                             $(form).parent().before("<div class='alert alert-danger'>Error desconocido en el envío</div>");
+                             $(form).parent().before("<div class='alert alert-danger'>Error desconocido en el envío <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n" +
+                                 "    <span aria-hidden=\"true\">&times;</span>\n" +
+                                 "  </button></div>");
                          });
 
                  }, false)

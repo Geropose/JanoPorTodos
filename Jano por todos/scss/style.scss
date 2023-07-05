@@ -206,19 +206,6 @@ $btn-border-radius: 30px;
 .navbar-nav li:hover > ul.dropdown-menu {
     display: block;
 }
-.dropdown-submenu {
-    position:relative;
-}
-.dropdown-submenu > .dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top:-6px;
-}
-
-.dropdown-menu > li > a:hover:after {
-    text-decoration: underline;
-    transform: rotate(-90deg);
-}
 
 .form-checkout {
     display: flex;
@@ -226,9 +213,6 @@ $btn-border-radius: 30px;
     max-width: 600px;
   }
 
-.containers {
-    position: relative;
-    overflow: hidden;
-    width: 45%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-  }
+body {
+    background: url(../img/Background.jpg);
+}
