@@ -19,6 +19,31 @@ class JanoNewsAndEvents
         if(is_array($filter)) $filter = implode(' ',$filter);
         $this->events[$facebookPostId] = $filter;
     }
+
+    /**
+     * @param $facebookPostId
+     * @return void
+     */
+    public function addEventTandil($facebookPostId) {
+        $this->addEvent($facebookPostId,self::FilterTandil);
+    }
+
+    /**
+     * @param $facebookPostId
+     * @return void
+     */
+    public function addEventJuarez($facebookPostId) {
+        $this->addEvent($facebookPostId,self::FilterJuarez);
+    }
+
+    /**
+     * @param $facebookPostId
+     * @return void
+     */
+    public function addEventNext($facebookPostId) {
+        $this->addEvent($facebookPostId,self::FilterNext);
+    }
+
     /**
      * events object should have the facebook postId as key and type class(es) as value
     types for filter: 'tandil', 'juarez', 'next'
