@@ -28,6 +28,10 @@ class ComposerStaticInit624f93d152cb859f6a2b33aad5a58d09
         array (
             'MercadoPago\\' => 12,
         ),
+        'J' => 
+        array (
+            'Jano\\' => 5,
+        ),
         'D' => 
         array (
             'Dotenv\\' => 7,
@@ -62,6 +66,10 @@ class ComposerStaticInit624f93d152cb859f6a2b33aad5a58d09
             2 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Generic',
             3 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Entities',
             4 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Entities/Shared',
+        ),
+        'Jano\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'Dotenv\\' => 
         array (

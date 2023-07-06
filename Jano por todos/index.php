@@ -1,4 +1,7 @@
 <?php
+
+use Jano\JanoNewsAndEvents;
+
 require_once "vendor/autoload.php";
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -12,24 +15,30 @@ if (empty($page)) {
     $page = 'home';
 }
 
-/*
-    events object should have the facebook postId as key and type class(es) as value
-    types for filter: 'tandil', 'juarez', 'next'
-*/
-$events = [
-    '644258887744689' => 'tandil',
-    '632335558937022' => 'tandil',
-    '2564870846986434' => 'tandil',
-    '627728559397722' => 'juarez'
-];
+$newsAndEventsManager = new JanoNewsAndEvents();
 
-$latestNews = [
-    '648217694015475',
+$newsAndEventsManager->addEvent(
+    '644258887744689', JanoNewsAndEvents::FilterTandil
+);
+$newsAndEventsManager->addEvent(
+    '632335558937022', JanoNewsAndEvents::FilterTandil
+);
+$newsAndEventsManager->addEvent(
+    '2564870846986434', JanoNewsAndEvents::FilterTandil
+);
+$newsAndEventsManager->addEvent(
+    '627728559397722',
+    JanoNewsAndEvents::FilterJuarez
+);
+
+$newsAndEventsManager->addLatestNews(
+    '648217694015475'
+);
+$newsAndEventsManager->addLatestNews(
     '648664413970803'
-];
+);
 
-
-$twig->addGlobal('latestNews', $latestNews);
-$twig->addGlobal('events',$events);
+$twig->addGlobal('latestNews', $newsAndEventsManager->getLatestNews());
+$twig->addGlobal('events', $newsAndEventsManager->getEvents());
 
 return $twig->display("pages/$page.twig");

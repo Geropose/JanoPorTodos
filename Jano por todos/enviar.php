@@ -4,11 +4,9 @@ require_once "vendor/autoload.php";
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
-require_once "mail/JanoMailer.php";
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $formType = $_POST['formType'];
-    $mailer = new JanoMailer();
+    $mailer = new \Jano\JanoMailer();
 
     try {
         if ($formType === 'empresa') {
