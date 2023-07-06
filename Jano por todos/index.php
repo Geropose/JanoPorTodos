@@ -23,9 +23,13 @@ $events = [
     '627728559397722' => 'juarez'
 ];
 
+$latestNews = [
+    '648217694015475',
+    '648664413970803'
+];
 
-$twig->addGlobal('latestNews', ['648217694015475', '648664413970803']);
 
+$twig->addGlobal('latestNews', $latestNews);
 $twig->addGlobal('events',$events);
 
 return $twig->display("pages/$page.twig");
