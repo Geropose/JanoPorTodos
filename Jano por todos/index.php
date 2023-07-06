@@ -4,7 +4,7 @@ require_once "vendor/autoload.php";
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
-$loader = new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . "/html");
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . "/html");
 $twig = new \Twig\Environment($loader, []);
 
 $page = $_REQUEST['page'];
@@ -28,4 +28,4 @@ $twig->addGlobal('latestNews', ['648217694015475', '648664413970803']);
 
 $twig->addGlobal('events',$events);
 
-return $twig->display("html/pages/$page.twig");
+return $twig->display("pages/$page.twig");
