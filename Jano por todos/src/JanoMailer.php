@@ -1,4 +1,5 @@
 <?php
+namespace Jano;
 
 class JanoMailer
 {

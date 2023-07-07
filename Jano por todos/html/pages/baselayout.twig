@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    {% include 'html/components/head.twig' %}
+    {% include 'components/head.twig' %}
 </head>
 
 <body>
 <div class="container-fluid bg-light position-relative shadow">
     {% block mainnav %}
-        {% include 'html/components/main-nav.twig' %}
+        {% include 'components/main-nav.twig' %}
     {% endblock %}
 </div>
 
@@ -30,19 +30,19 @@
 
 {% block modals %}
 
-    {% include 'html/components/modal-donaciones.twig' %}
+    {% include 'components/modal-donaciones.twig' %}
 
-    {% include 'html/components/modal-suscripcion.twig' %}
+    {% include 'components/modal-suscripcion.twig' %}
 
-    {% include 'html/components/modal-monto.twig' %}
+    {% include 'components/modal-monto.twig' %}
 
 {% endblock %}
 
 <div class="container-fluid pt-5">
     <div class="container">
     {% block maincontent %}
-        {% include 'html/components/ultimas-noticias.twig' %}
-        {% include 'html/components/form-contacto.twig' %}
+        {% include 'components/ultimas-noticias.twig' %}
+        {% include 'components/form-contacto.twig' %}
 
     {% endblock %}
     </div>

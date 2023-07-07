@@ -2,7 +2,7 @@ version: "3"
 
 services:
   php:
-    image: porchn/php5.6-apache
+    build: .
     volumes:
       - .:/var/www/html
     ports:

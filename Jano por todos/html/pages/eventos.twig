@@ -1,4 +1,4 @@
-{% extends 'html/pages/baselayout.twig' %}
+{% extends 'pages/baselayout.twig' %}
 {% block header %}
     <div
             class="d-flex flex-column align-items-center justify-content-center"
@@ -41,7 +41,7 @@
     <div class="row portfolio-container ">
         {% for event, type in  events %}
         <div class="col-lg-6 col-md-6 mb-4 portfolio-item {{ type }}">
-            {% include 'html/components/noticia-facebook.twig' with {'postId': event} %}
+            {% include 'components/noticia-facebook.twig' with {'postId': event} %}
         </div>
         {% endfor %}
     </div>

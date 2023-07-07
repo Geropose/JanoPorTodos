@@ -11,6 +11,7 @@ return array(
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'MercadoPago\\' => array($vendorDir . '/mercadopago/dx-php/src/MercadoPago', $vendorDir . '/mercadopago/dx-php/tests', $vendorDir . '/mercadopago/dx-php/src/MercadoPago/Generic', $vendorDir . '/mercadopago/dx-php/src/MercadoPago/Entities', $vendorDir . '/mercadopago/dx-php/src/MercadoPago/Entities/Shared'),
+    'Jano\\' => array($baseDir . '/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib/Doctrine/Common/Lexer'),
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
